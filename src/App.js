@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from 'axios';
 import Movie from "./Movie";
 import './App.css';
@@ -25,7 +25,7 @@ function App() {
         </div>
       )
       : (
-        <div>
+        <div className="movies">
           {
           movies.map((movie) => {
             return (
@@ -35,7 +35,8 @@ function App() {
                 title={movie.title} 
                 year={movie.year} 
                 summary={movie.summary} 
-                poster={movie.medium_cover_image} />
+                poster={movie.medium_cover_image}
+                genres={movie.genres} />
             );
             })
           }
