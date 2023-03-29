@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Movie.css';
+import { Link } from 'react-router-dom';
 
-const Movie = ({ title, year, summary, poster, genres }) => {
+const Movie = (props) => {
+  const { title,year, summary, poster, genres } = props;
   return (
     <div className='movie'>
+      <Link to='/movie-detail' state={props}>
       <img src={poster} />
       <div className='movie__data'>
         <h3 className='movie__title'>{title}</h3>
@@ -18,6 +21,7 @@ const Movie = ({ title, year, summary, poster, genres }) => {
           })}
         </ul>
       </div>
+      </Link>
     </div>
     
   );
